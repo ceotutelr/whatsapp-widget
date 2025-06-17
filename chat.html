@@ -1,68 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>WhatsApp Chat</title>
+  <title>Floating WhatsApp</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      height: 100%;
+      background: transparent;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      z-index: 9999;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #20c45a;
     }
   </style>
 </head>
 <body>
-  <script>
-    (function () {
-      const scriptURL = 'https://wati-integration-prod-service.clare.ai/v2/watiWidget.js?54929';
-      const phoneNumber = '8111040362';
-
-      const options = {
-        enabled: true,
-        chatButtonSetting: {
-          backgroundColor: "#d10000",
-          ctaText: "Chat with us",
-          borderRadius: "25",
-          marginLeft: "0",
-          marginRight: "20",
-          marginBottom: "20",
-          ctaIconWATI: false,
-          position: "right"
-        },
-        brandSetting: {
-          brandName: "Tutelr.",
-          brandSubTitle: "Cybersecurity & Compliance Experts",
-          brandImg: "https://www.wati.io/wp-content/uploads/2023/04/Wati-logo.svg",
-          welcomeText: "Hi there! 👋\nHow can we assist you today?",
-          messageText: "{{page_link}}Hello, I have a question about {{page_link}}",
-          backgroundColor: "#d10000",
-          ctaText: "Chat with us",
-          borderRadius: "25",
-          autoShow: false,
-          phoneNumber: phoneNumber
-        }
-      };
-
-      function loadWidget() {
-        const s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = scriptURL;
-        s.onload = function () {
-          if (typeof CreateWhatsappChatWidget === 'function') {
-            CreateWhatsappChatWidget(options);
-          }
-        };
-        document.head.appendChild(s);
-      }
-
-      if (document.readyState === 'complete') {
-        loadWidget();
-      } else {
-        window.addEventListener('load', loadWidget);
-      }
-    })();
-  </script>
+  <a
+    href="https://wa.me/918111040362?text=Hi%20Tutelr!%20I%20have%20a%20question."
+    target="_blank"
+    class="whatsapp-float"
+    title="Chat with Tutelr on WhatsApp"
+  >
+    💬
+  </a>
 </body>
 </html>
